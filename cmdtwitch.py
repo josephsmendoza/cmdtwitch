@@ -24,14 +24,12 @@ try:
     while(True):
         try:
             import jsonpickle
-            import ahk
             import requests
             break
         except ModuleNotFoundError as e:
             import os
             os.system("pip install "+e.name)
 
-    from ahk import AHK
     from dataclasses import dataclass, field
     import jsonpickle
     import json
@@ -87,8 +85,6 @@ try:
 
     def sendMessage(msg):
         send("privmsg #"+config.channel+" :"+msg)
-
-    ahk = AHK()
 
     def isMod(user):
         if user == config.channel:
