@@ -106,6 +106,7 @@ try:
         if(msg.startswith("PING")):
             send("PONG"+msg[4:-1])
             continue
+        print(msg)
         user = msg[1:msg.find("!")]
         if not isMod(user):
             continue
