@@ -109,7 +109,6 @@ try:
         user = msg[1:msg.find("!")]
         if not isMod(user):
             continue
-        print("ismod")
         msg = msg.lower()
         findstr = "#"+config.channel+" :"
         index = msg.find(findstr)+len(findstr)
@@ -117,7 +116,7 @@ try:
         if msg not in config.commands.keys():
             continue
         cmd=config.commands[msg]
-        print(user+":"+msg+":"+cmd)
+        print("! "+user+":"+msg+":"+cmd)
         try:
             os.system(cmd)
         except Exception as e:
