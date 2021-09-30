@@ -1,0 +1,6 @@
+/*.spec
+config.json
+log.txt
+/dist
+/build
+/__*
