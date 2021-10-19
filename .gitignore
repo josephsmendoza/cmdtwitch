@@ -1,5 +1,5 @@
 /*.spec
-config.json
+cmdtwitch.json
 log.txt
 /dist
 /build
