@@ -81,7 +81,6 @@ if(config.ssl):
 sock.connect((config.host, config.port))
 
 def send(msg):
-    msg += '\n'
     if(msg.startswith("pass")):
         print("< pass redacted")
     else:
