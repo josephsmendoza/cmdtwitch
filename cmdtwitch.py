@@ -85,7 +85,7 @@ def send(msg):
         print("< pass redacted")
     else:
         print("< "+msg)
-    sock.send(msg.encode())
+    sock.send((msg+"\r\n").encode())
 
 def sendMessage(msg):
     send("privmsg #"+config.channel+" :"+msg)
