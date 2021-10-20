@@ -90,21 +90,13 @@ def send(msg):
 def sendMessage(msg):
     send("privmsg #"+config.channel+" :"+msg)
 
-def isMod(user):
-    if user == config.channel:
-        return True
-    if user == "streamelements":
-        return True
-    chatters = Chatters(
-        **json.loads(requests.get("http://tmi.twitch.tv/group/user/" + config.channel + "/chatters").text))
-    return user in chatters.chatters["moderators"]
+mods=[]
 
-send("pass "+config.password)
-send("nick "+config.username)
-send("join #"+config.channel)
+send("CAP REQ :twitch.tv/commands")
+sendMessage("/mods")
 sendMessage("cmdtwitch online")
 findstr = "#"+config.channel+" :"
-
+modstr = "The moderators of this channel are: "
 while(True):
     raw = sock.recv(1024).decode()
     if not raw:
@@ -117,8 +109,13 @@ while(True):
         if(msg.startswith("PING")):
             send("PONG"+msg[4:])
             continue
+        modindex=msg.find(modstr)
+        if(modindex != -1):
+            mods=msg[modindex+len(modstr):].split(", ")
+            print("! mods list updated: "+" ".join(mods))
+            continue
         user = msg[1:msg.find("!")]
-        if not isMod(user):
+        if user not in mods:
             continue
         msg = msg.lower()
         index = msg.find(findstr)+len(findstr)
