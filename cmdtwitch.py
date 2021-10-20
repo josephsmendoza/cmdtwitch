@@ -93,6 +93,8 @@ def sendMessage(msg):
 def isMod(user):
     if user == config.channel:
         return True
+    if user == "streamelements":
+        return True
     chatters = Chatters(
         **json.loads(requests.get("http://tmi.twitch.tv/group/user/" + config.channel + "/chatters").text))
     return user in chatters.chatters["moderators"]
