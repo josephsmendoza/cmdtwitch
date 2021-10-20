@@ -126,7 +126,7 @@ while(True):
         if msg[0] not in config.commands.keys():
             continue
         cmd=config.commands[msg[0]].replace("$args"," ".join(msg[1:]))
-        print("! "+user+":"+msg+":"+cmd)
+        print("! "+user+":"+(" ".join(msg))+":"+cmd)
         try:
             os.system(cmd)
         except Exception as e:
