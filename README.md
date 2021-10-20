@@ -3,7 +3,7 @@ This program allows you to bind twitch commands to terminal commands. In layman'
 ## WIP
 This program is in its early stages, and doesn't implement any safety checks. It only binds chat commands, which are only mod-accessible, to terminal commands, which can do immense damage to your pc. If you don't understand exactly what a terminal command does, don't put it into this program.
 ## Usage
-At the moment there is no GUI, just a json file that is generated the first time you run the program. The username should be the bot (or your) account username, the nick should be your account username, and the pass should be generated using the provided link while signed in to the bot (or your) account. Then you need to fill out the commands you want to use, for example:
+At the moment there is no GUI, just a json file that is generated the first time you run the program. The `username` should be the bot (or your) account username, the `channel` should be your account username, and the `password` should be generated using the provided link while signed in to the bot (or your) account. Then you need to fill out the commands you want to use, for example:
 ```json
 "commands":{
     "!goose":"GooseDesktop.exe",
