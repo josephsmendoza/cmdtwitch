@@ -20,7 +20,7 @@ try:
             self.file.write(data)
             self.file.flush()
 
-    Tee("log.txt", "w")
+    Tee("cmdtwitch.log", "w")
 
 except Exception:
     import traceback
