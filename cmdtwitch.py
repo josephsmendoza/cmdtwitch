@@ -81,17 +81,20 @@ if(config.ssl):
 sock.connect((config.host, config.port))
 
 def send(msg):
-    if(msg.startswith("pass")):
-        print("< pass redacted")
+    if(msg.startswith("PASS")):
+        print("< PASS REDACTED")
     else:
         print("< "+msg)
     sock.send((msg+"\r\n").encode())
 
 def sendMessage(msg):
-    send("privmsg #"+config.channel+" :"+msg)
+    send("PRIVMSG #"+config.channel+" :"+msg)
 
 mods=[]
 
+send("PASS "+config.password)
+send("NICK "+config.username)
+send("JOIN #"+config.channel)
 send("CAP REQ :twitch.tv/commands")
 sendMessage("/mods")
 sendMessage("cmdtwitch online")
