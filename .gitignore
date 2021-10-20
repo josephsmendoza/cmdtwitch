@@ -1,6 +1,6 @@
 /*.spec
 cmdtwitch.json
-log.txt
+cmdtwitch.log
 /dist
 /build
 /__*
