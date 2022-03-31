@@ -11,3 +11,5 @@ At the moment there is no GUI, just a json file that is generated the first time
 }
 ```
 At the moment, only mods can use cmdtwitch chat commands. You can use one of the popular chatbots to put these commands behind a point system by creating a chat command in your chatbot which puts a cmdtwitch chat command into chat. Redeem support is on it's way.
+
+If you need any help, join the [discord](https://discord.gg/zxDnYSvMNw)
