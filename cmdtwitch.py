@@ -20,6 +20,9 @@ try:
             self.file.write(data)
             self.file.flush()
 
+        def flush(*args):
+            pass
+
     Tee("cmdtwitch.log", "w")
 
 except Exception:
@@ -115,6 +118,7 @@ while(True):
         modindex=msg.find(modstr)
         if(modindex != -1):
             mods=msg[modindex+len(modstr):].split(", ")
+            mods.append(config.channel)
             print("! mods list updated: "+" ".join(mods))
             continue
         user = msg[1:msg.find("!")]
@@ -123,6 +127,8 @@ while(True):
         msg = msg.lower()
         index = msg.find(findstr)+len(findstr)
         msg = msg[index:].split(" ")
+        if msg[0].startswith('@'):
+            msg.pop(0)
         if msg[0] not in config.commands.keys():
             continue
         cmd=config.commands[msg[0]].replace("$args"," ".join(msg[1:]))
