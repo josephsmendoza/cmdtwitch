@@ -15,11 +15,13 @@ try:
             self.file.close()
 
         def write(self, data):
-            self.stdout.write(data)
-            self.stdout.flush()
-            self.file.write(data)
-            self.file.flush()
-
+            try:
+                self.stdout.write(data)
+                self.stdout.flush()
+                self.file.write(data)
+                self.file.flush()
+            except:
+                pass
         def flush(*args):
             pass
 
